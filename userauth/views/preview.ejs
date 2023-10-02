@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="assets/image/logo.png">
 
-	<title>Monumental Trust Bank Plc |     Account Statement</title>
+	<title>Monumental Trust Bank Plc |     Transfer preview</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -40,7 +40,8 @@
 	<!-- QuillPro Styles -->
 	<link rel="stylesheet" href="dashassets/css/quillpro/quillpro.css">
 
-	<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6b84b802-d974-4896-92e5-a177f4d49a66";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6b84b802-d974-4896-92e5-a177f4d49a66";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
 
 	<style type="text/css">
 	.nosamepass {
@@ -97,8 +98,6 @@ border-radius:20px;
 }
 
 </style>
-
-
 </head>
 
 <body>
@@ -153,7 +152,7 @@ border-radius:20px;
 							Account Statement
 						</a>
 					</li>
-					<li class="nav-item">
+		<li class="nav-item">
 						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
@@ -182,8 +181,8 @@ border-radius:20px;
 							Logout
 						</a>
 						<form id="logout" action="/logout?_method=DELETE" method="POST">
-                            <input type="hidden" name="_token" value="">                            
-						</form>
+              <input type="hidden" name="_token" value="">                            
+            </form>
 					</li>
 
 				</ul>
@@ -356,11 +355,10 @@ function googleTranslateElementInit() {
 						<ul class="navbar-nav ml-5 navbar-profile">
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
-									<div class="profile-name"></div>
+									<div class="profile-name"><%= last_name %> <%= first_name %></div>
 									<div class="profile-picture bg-gradient bg-primary has-message float-right">
-
-                                        <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
-                                    </div>
+                      <img   src="assets/image/user.png" width="44" height="44" alt="">
+    								</div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
 									<li><a class="dropdown-item" href="/profile">Profile</a></li>
@@ -381,73 +379,435 @@ function googleTranslateElementInit() {
 				<main class="main-content p-5" role="main">
 
 			
+<div class="row">
+
+					<div class="col-md-12 col-lg-12 mb-10">
+							<div class="card  ">
+								<div><br>
+
+									<strong style="padding-left:58px;">FUND TRANSFER IN PROGRESS</strong>
+								</div>
+<div style="padding-left:58px; padding-top:30px;">
+<script type="text/javascript">
+var bar1= createBar(503,20,'white',1,'black','green',50,15,3,"");
+</script>
+</div>
+
+<div style="padding-left:50px; padding-right:50px; padding-top:10px;">
 
 
-	<div class="row">
 
 
-			        <div class="col-md-12 mb-5">
 
-			          <div class="card">
-
-			            <div class="card-header">
-
-			              Transaction History
-						
-						</div>
-
-			            <div class="card-table table-responsive">
-
-			              <table class="table table-hover align-middle">
-
-			                <thead class="thead-light">
-
-			                  <tr>
-
-			                    <th width="25%">Date / Time </th>
-
-					              <th width="12%">Credit / Debit </th>
-
-					              <th width="33%">Description</th>
-
-					              <th width="14%">Amount</th>
-
-					              <th width="16%">Available Balance </th>
-
-				              </tr>
-
-		                    </thead>
-
-<tbody>
-                                            <tr>
-                                                <td colspan="6"><h2>No Data Available</h2></td>
-                                            </tr>
-                                        
-			                      	                        </tbody>
-
-		                  </table>
-
-		                </div>
-
-		              </div>
-
-		          </div>
-
-		        </div>
+<div id="KillBar">
+    
 
 
+<div class="meter animate">
+
+  <span style="width: 100%"><span></span></span>
+
+  </div>
+   </div>
+
+<div id="myText2">
+<hd id="myText"  style="display:none" />
+ 
+  
+ 
+ <style> 
+            
+            div.scroll { 
+                
+                width: 100%; 
+                height: 100%; 
+                overflow-x: hidden; 
+                overflow-y: auto;  
+            } 
+        </style> 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- Invoice  
+<div class="invoice scroll"  >
+  <div class="invoice-logo">
+    <img src="assets/image/logo.png" alt="">
+  </div>
+  <div class="invoice-sec-1  responsive">
+    <div class="invoice-sec-1-ref">
+      <div class="ref-no"> 
+        <p>Receipt No: <span>067259</span></p>
+      </div>
+      <div class="to-invoice">
+        <p>Benefeciary</p>
+        <p>msc shipping company</p>
+        <p>Account Number: <span>347-6-15930-8</span></p>
+        <p>Bank Name: <span>chase bank</span></p>
+        <p>Bank Address: <span>USA</span></p>
+        <p>Bank Country: <span>USA</span></p>
+        <p>Routing/IBAN: <span>65781245</span></p>
+      </div>
+    </div>
+    <div class="invoice-sec-1-date">
+      <p>Date: <span> 14/Sep/2023 </span></p>
+    </div>
+  </div>
+  <div class="invoice-banner">
+    <div class="banner-d">
+      <p>Receipt</p>
+    </div>
+  </div>
+  <div class="invoice-table">
+    <div class="invoice-table-container">
+      <div class="invoice-table-data">
+        <div class="invoice-table-sl invoice-table-sl-h">
+          <strong> <p>Sl. No</p></strong>
+        </div>
+        <div class="invoice-table-desc invoice-table-desc-h">
+          <strong><p>Description</p></strong>
+        </div>
+        <div class="invoice-table-amount invoice-table-amount-h">
+          <strong><p>Amount</p></strong>
+        </div>
+      </div>
+      <div class="invoice-table-data">
+        <div class="invoice-table-sl">
+          <p>01</p>
+        </div>
+        <div class="invoice-table-desc">
+          <p>International Wire Transfer</p>
+        </div>
+        <div class="invoice-table-amount">
+          <p>$100.00</p>
+        </div>
+      </div>
+      <div class="invoice-table-footer">
+        <div class="invoice-total">
+          <p>Total</p>
+        </div>
+        <div class="invoice-total-amount">
+          <p>$100.00</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="invoice-declaration">
+    <p>Your Details has been received on our server. Please wait while we process your fund trasfer. </p>
+  </div>
+  <div class="invoice-greeting">
+    <p>Thank You</p> 
+  </div>
+</div>
+ 
+</article> !-->
+<!--
+
+Follow me on
+Dribbble: https://dribbble.com/supahfunk
+Twitter: https://twitter.com/supahfunk
+Codepen: https://codepen.io/supah/
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Order confirmation </title>
+<meta name="robots" content="noindex,nofollow" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+<style type="text/css">
+  @import  url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+  body { margin: 0; padding: 0; }
+  div, p, a, li, td { -webkit-text-size-adjust: none; }
+  .ReadMsgBody { width: 100%; background-color: #ffffff; }
+  .ExternalClass { width: 100%; background-color: #ffffff; }
+  body { width: 100%; height: 100%;   margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+  html { width: 100%; }
+  p { padding: 0 !important; margin-top: 0 !important; margin-right: 0 !important; margin-bottom: 0 !important; margin-left: 0 !important; }
+  .visibleMobile { display: none; }
+  .hiddenMobile { display: block; }
+
+  @media  only screen and (max-width: 600px) {
+  body { width: auto !important; }
+  table[class=fullTable] { width: 96% !important; clear: both; }
+  table[class=fullPadding] { width: 85% !important; clear: both; }
+  table[class=col] { width: 45% !important; }
+  .erase { display: none; }
+  }
+
+  @media  only screen and (max-width: 420px) {
+  table[class=fullTable] { width: 100% !important; clear: both; }
+  table[class=fullPadding] { width: 85% !important; clear: both; }
+  table[class=col] { width: 100% !important; clear: both; }
+  table[class=col] td { text-align: left !important; }
+  .erase { display: none; font-size: 0; max-height: 0; line-height: 0; padding: 0; }
+  .visibleMobile { display: block !important; }
+  .hiddenMobile { display: none !important; }
+  }
+</style>
+
+
+<!-- Header -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" >
+  <tr>
+    <td height="20"></td>
+  </tr>
+  <tr>
+    <td>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff" style="border-radius: 10px 10px 0 0;">
+        <tr class="hiddenMobile">
+          <td height="40"></td>
+        </tr>
+        <tr class="visibleMobile">
+          <td height="30"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+              <tbody>
+                <tr>
+                  <td>
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
+                      <tbody>
+                        <tr>
+                            <p><strong>YOUR TRANSFER WAS SUCCESSFUL</strong></p>
+                            <br>
+                          <td align="left"> <img src="assets/image/logo.png" width="79" height="32" alt="logo" border="0" /></td>
+                        </tr>
+                        <tr class="hiddenMobile">
+                          <td height="40"></td>
+                        </tr>
+                        <tr class="visibleMobile">
+                          <td height="20"></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: left;">
+                            Hello, <%= last_name %> <%= first_name %>
+                            <br><a class="text-success"> Thank You For Making A Transfer From Your<br>Corporate account. Please be advised your transfer has been executed.</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="220" border="0" cellpadding="0" cellspacing="0" align="right" class="col">
+                      <tbody>
+                        <tr class="visibleMobile">
+                          <td height="20"></td>
+                        </tr>
+                        <tr>
+                          <td height="5"></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 21px; color: #ff0000; letter-spacing: -1px; font-family: 'Open Sans', sans-serif; line-height: 1; vertical-align: top; text-align: right;">
+                            Invoice
+                          </td>
+                        </tr>
+                        <tr>
+                        <tr class="hiddenMobile">
+                          <td height="50"></td>
+                        </tr>
+                        <tr class="visibleMobile">
+                          <td height="20"></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 12px; color: #5b5b5b; font-family: 'Open Sans', sans-serif; line-height: 18px; vertical-align: top; text-align: right;">
+                            <small>Transaction Number</small> #49238<br />
+                            <small> </small>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- /Header --> 
+<!-- Total -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" >
+  <tbody>
+    <tr>
+      <td>
+        <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
+            <tr>
+              <td>
+
+                <!-- Table Total -->
+                <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                  <tbody>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
+                        Amount
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; white-space:nowrap;" width="80">
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
+                        Charges &amp; Handling
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align:right; ">
+                       $0.00
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                        <strong>Grand Total (Incl.Tax)</strong>
+                      </td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #000; line-height: 22px; vertical-align: top; text-align:right; ">
+                        <strong>$<%= amount %></strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #b0b0b0; line-height: 22px; vertical-align: top; text-align:right; "><small>TAX</small></td>
+                      <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #b0b0b0; line-height: 22px; vertical-align: top; text-align:right; ">
+                        <small>$0.00</small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- /Table Total -->
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- /Total -->
+<!-- Information -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" >
+  <tbody>
+    <tr>
+      <td>
+        <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="fullTable" bgcolor="#ffffff">
+          <tbody>
+            <tr>
+            <tr class="hiddenMobile">
+              <td height="60"></td>
+            </tr>
+            <tr class="visibleMobile">
+              <td height="40"></td>
+            </tr>
+            <tr>
+              <td>
+                <table width="480" border="0" cellpadding="0" cellspacing="0" align="center" class="fullPadding">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <table width="220" border="0" cellpadding="0" cellspacing="0" align="left" class="col">
+
+                          <tbody>
+                            <tr>
+                              <td style="font-size: 11px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 1; vertical-align: top; ">
+                                <strong>BENEFICIARY <%= beneficiary %></strong>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="100%" height="10"></td>
+                            </tr>
+                            <tr>
+                                 
+                              <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 20px; vertical-align: top; ">
+                              Account Name: <%= beneficiary %> <br> Account #: <%= receiverAccountNumber %> <br> Routing/IBAN: <%= routenumber %> 
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+
+                        <table width="220" border="0" cellpadding="0" cellspacing="0" align="right" class="col">
+                          <tbody>
+                            <tr class="visibleMobile">
+                              <td height="20"></td>
+                            </tr>
+                            <tr>
+                              <td style="font-size: 11px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 1; vertical-align: top; ">
+                                <strong>Bank Details</strong>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="100%" height="10"></td>
+                            </tr>
+                            <tr>
+                              <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #5b5b5b; line-height: 20px; vertical-align: top; ">
+                                Bank Name: <%= bank_name %> <br> Address: <%= branch_name %><br> Country: <%= country %> <a href="#" style="color: #ff0000; text-decoration:underline;">International Transfer</a><br>
+                                 
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                
+      </td>
+    </tr>
+  </tbody>
+</table>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <!--<div class="h3">Click on the button below to</div>
+    <form method="post" action="user/other/bank/transfer/confirm">
+                        <input type="hidden" name="_token" value="JhIf1Wct5DcB7DiJBictJXR4E7nEJTlVSFdVyEJs">                        <input type="hidden" name="amount" value="100">
+                        <input type="hidden" name="branch_name" value="USA">
+                        <input type="hidden" name="bank" value="chase bank">
+                        <input type="hidden" name="bank" value="chase bank">
+                        <input type="hidden" name="bene" value="msc shipping company">
+                        <input type="hidden" name="account_number" value="347-6-15930-8">
+                        <input type="hidden" name="details" value="International Wire Transfer">
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Complete Transaction</button> 
+                        </div>
+                    </form>!-->
+  </hd>
+
+
+								</div>
+							</div></div></div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+					 
+
+
+					</div>
 
 		  </div>
 
-
-
 				</main>
-
 	  </div>
-
 </div>
-
-	</div>
 
 
  </div>

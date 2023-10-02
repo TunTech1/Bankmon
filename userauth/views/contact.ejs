@@ -9,7 +9,8 @@
 	<meta name="author" content="">
 	<link rel="icon" href="assets/image/logo.png">
 
-	<title>Monumental Trust Bank Plc |     Account Statement</title>
+	<title>Monumental Trust Bank Plc |    
+</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -97,8 +98,6 @@ border-radius:20px;
 }
 
 </style>
-
-
 </head>
 
 <body>
@@ -153,7 +152,7 @@ border-radius:20px;
 							Account Statement
 						</a>
 					</li>
-					<li class="nav-item">
+		<li class="nav-item">
 						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
@@ -356,10 +355,11 @@ function googleTranslateElementInit() {
 						<ul class="navbar-nav ml-5 navbar-profile">
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
-									<div class="profile-name"></div>
+									<div class="profile-name"><%= last_name %> <%= first_name %></div>
 									<div class="profile-picture bg-gradient bg-primary has-message float-right">
 
                                         <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
+                                    
                                     </div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
@@ -383,72 +383,103 @@ function googleTranslateElementInit() {
 			
 
 
-	<div class="row">
+                <div class="row">
 
 
-			        <div class="col-md-12 mb-5">
+					<div class="col-md-12 col-lg-9 mb-8">
+							<div class="card card-mdh">
+								<div><br>
 
-			          <div class="card">
-
-			            <div class="card-header">
-
-			              Transaction History
-						
-						</div>
-
-			            <div class="card-table table-responsive">
-
-			              <table class="table table-hover align-middle">
-
-			                <thead class="thead-light">
-
-			                  <tr>
-
-			                    <th width="25%">Date / Time </th>
-
-					              <th width="12%">Credit / Debit </th>
-
-					              <th width="33%">Description</th>
-
-					              <th width="14%">Amount</th>
-
-					              <th width="16%">Available Balance </th>
-
-				              </tr>
-
-		                    </thead>
-
-<tbody>
-                                            <tr>
-                                                <td colspan="6"><h2>No Data Available</h2></td>
-                                            </tr>
-                                        
-			                      	                        </tbody>
-
-		                  </table>
-
-		                </div>
-
-		              </div>
-
-		          </div>
-
-		        </div>
+									<strong style="padding-left:10px;">CONTACT US </strong>
+								</div>
+								<div > 
 
 
+										<table class="table" style="margin-bottom:0px;">
+													<tr>
+													  <td width="100%" style="margin-bottom:0px;">Do you have questions to ask or want to make inquiries? <br>
+												      Kindly contact us using the email below. <br>
+												      We will be glad to assist you.</td>
+							              </tr>
+													<tr>
+													  <td style="margin-bottom:0px;"><strong>Email : </strong> Support@monumentaltrustbankinc.com <br /></td>
+										  </tr>
+										  
+
+													<tr>
+													  <td style="margin-bottom:0px;"><strong></strong> </td>
+										  </tr>
+													<tr>
+														<td style="margin-bottom:0px;">														</td>
+											        </tr>
+									  </table>
+
+									<div class="col">
+					<form action="user/contactpost" class="contact-form clearfix" method="post" id="contact_form_submit">
+                            <input type="hidden" name="_token" value="">
+                                <div class="form-group row align-items-end">
+                                    <div class="col-sm-6 mb-4 mb-sm-0">
+                                        <label>Your name</label>
+                                        <input type="text" name="name"  value="" readonly class="form-control" placeholder="<%= last_name %> <%= first_name %>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                            <label>Email address</label>
+                                    <input type="email" name="email"  value="" readonly class="form-control" placeholder="<%= email %>">
+                                    </div>
+                                    </div>
+                    <div class="form-group">
+                  
+                   <label>Subject</label>
+                    <input type="text" name="subject" class="form-control" placeholder="Subject">
+                    </div>
+                <div class="form-group">
+                  <label>Write message</label>
+                  <textarea class="form-control" name="message" placeholder="Your messege"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+              </form>
+            
+					</div>
+			 
+								</div>
+							</div>
+					  </div>
+
+
+
+
+
+
+					<div class="col-sm-12 col-md-6 col-xl-3 mb-4">
+							<div class="card card-md bg-primary bg-gradient text-center">
+								<div class="card-body">
+									<div class="profile-picture profile-picture-lg bg-gradient bg-primary mt-5">
+
+                                        <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
+                                    
+                                    </div>
+									<p class="mt-5 mb-4">Welcome!</p>
+									<h6 ><%= last_name %> <%= first_name %></h6>
+
+									<a class="btn btn-secondary" href="/profile">View Profile</a>
+								</div>
+							</div>
+					  </div>
+
+
+
+
+
+
+
+					</div>
 
 		  </div>
 
-
-
 				</main>
-
 	  </div>
-
 </div>
-
 	</div>
-
 
  </div>
 </div>
@@ -691,6 +722,7 @@ function hey(){
 </script>
 <!-- main js -->
 
+    <script type="text/javascript" src="assets/user/fileInput/bootstrap-fileinput.js"></script>
 
 </body>
 </html> 

@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="assets/image/logo.png">
 
-	<title>Monumental Trust Bank Plc |     Account Statement</title>
+	<title>Monumental Trust Bank Plc |     Change Password</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -94,11 +94,10 @@ border-radius:20px;
   height: 100%;
   border-radius: 20px;
   background-color: rgb(43,194,83);
+
 }
 
 </style>
-
-
 </head>
 
 <body>
@@ -153,7 +152,8 @@ border-radius:20px;
 							Account Statement
 						</a>
 					</li>
-					<li class="nav-item">
+		
+                    <li class="nav-item">
 						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
@@ -360,6 +360,7 @@ function googleTranslateElementInit() {
 									<div class="profile-picture bg-gradient bg-primary has-message float-right">
 
                                         <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
+                                    
                                     </div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
@@ -383,72 +384,98 @@ function googleTranslateElementInit() {
 			
 
 
-	<div class="row">
+
+					<div class="row">
 
 
-			        <div class="col-md-12 mb-5">
+					<div class="col-md-12 col-lg-9 mb-8">
+							<div class="card card-md">
+								<div><br>
 
-			          <div class="card">
-
-			            <div class="card-header">
-
-			              Transaction History
-						
-						</div>
-
-			            <div class="card-table table-responsive">
-
-			              <table class="table table-hover align-middle">
-
-			                <thead class="thead-light">
-
-			                  <tr>
-
-			                    <th width="25%">Date / Time </th>
-
-					              <th width="12%">Credit / Debit </th>
-
-					              <th width="33%">Description</th>
-
-					              <th width="14%">Amount</th>
-
-					              <th width="16%">Available Balance </th>
-
-				              </tr>
-
-		                    </thead>
-
-<tbody>
-                                            <tr>
-                                                <td colspan="6"><h2>No Data Available</h2></td>
-                                            </tr>
-                                        
-			                      	                        </tbody>
-
-		                  </table>
-
-		                </div>
-
-		              </div>
-
-		          </div>
-
-		        </div>
+									<strong style="padding-left:10px;">CHANGE ACCOUNT PASSWORD AND TRANSACTION PIN </strong>
+								</div>
+								<div >
+ <form action="user/profile/password" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="">										
+							<table class="table" style="margin-bottom:0px;">
 
 
+                                        <tr>
+										<td width="29%">Change  Password </td>
+
+
+										<td><span class="form-group">
+										  <input type="password" class="form-control" style="margin-bottom:0px; margin-top:0px; " name="password" id="passw"  >
+										</span></td>
+										<td>&nbsp;</td>
+                                        </tr>
+
+													<tr>
+													  <td  style="margin-bottom:0px;">Change  Pin </td>
+													  <td  style="margin-bottom:0px;"><input name="pin" type="password" class="form-control" id="pinnumber" style="margin-bottom:0px;"   >                                                      </td>
+												      <td  style="margin-bottom:0px;">&nbsp;</td>
+													</tr>
+													<tr>
+													  <td style="margin-bottom:0px;">Old Password </td>
+													  <td width="45%" style="margin-bottom:0px;">
+								<input name="old_password"  type="password" class="form-control password"   style="margin-bottom:0px;"    required placeholder="Enter your previous password"></td>
+	
+												     </tr>
+													<tr>
+													  <td style="margin-bottom:0px;"><span style="margin-left:10px;">
+
+													  </span></td>
+										              <td colspan="2" style="margin-bottom:0px;">
+										              <input type="submit" value="Submit" class="btn btn-primary" id="submit"></td>
+										  </tr>
+													<tr>
+														<td colspan="3" style="margin-bottom:0px;">														</td>
+											        </tr>
+									  </table>
+
+									<div class="form-group">
+
+					</div>
+				<span style="margin-left:10px;">
+
+				</span>
+</form>
+								</div>
+							</div>
+					  </div>
+
+
+
+
+
+
+					<div class="col-sm-12 col-md-6 col-xl-3 mb-4">
+							<div class="card card-md bg-primary bg-gradient text-center">
+								<div class="card-body">
+									<!--<div class="profile-picture profile-picture-lg bg-gradient bg-primary mt-5">
+										<img src="assets/img/profile-pic.jpg" width="44" height="44">									</div>-->
+									<p class="mt-5 mb-4">Welcome!</p>
+									<h6 ></h6>
+
+									<a class="btn btn-secondary" href="/profile">View Profile</a>
+								</div>
+							</div>
+					  </div>
+
+
+
+
+
+
+
+					</div>
 
 		  </div>
 
-
-
 				</main>
-
 	  </div>
-
 </div>
-
 	</div>
-
 
  </div>
 </div>

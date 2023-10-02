@@ -416,14 +416,32 @@ function googleTranslateElementInit() {
 
 				              </tr>
 
+							  <% transactionHistory.forEach(transaction => { %>
+								<tr>
+									<td><%= transaction.dateTime %></td>
+									<td>
+										<% if (transaction.type === 'Debit') { %>
+											<span class='badge badge-danger'><%= transaction.type %></span>
+										<% } else if (transaction.type === 'Credit') { %>
+											<span class='badge badge-success'><%= transaction.type %></span>
+										<% } else { %>
+											<span class='badge'><%= transaction.type %></span>
+										<% } %>
+									</td>
+									<td><%= transaction.description %></td>
+									<td><%= transaction.amount %></td>
+									<td><%= transaction.balance %></td>
+								</tr>
+							<% }); %>
+
 		                    </thead>
 
-<tbody>
+						<!-- <tbody>
                                             <tr>
                                                 <td colspan="6"><h2>No Data Available</h2></td>
                                             </tr>
                                         
-			                      	                        </tbody>
+			            </tbody> -->
 
 		                  </table>
 

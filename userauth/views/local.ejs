@@ -41,6 +41,8 @@
 
   <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6b84b802-d974-4896-92e5-a177f4d49a66";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
+
+
 	<style type="text/css">
         .nosamepass {
   display: none;
@@ -113,32 +115,32 @@ border-radius:20px;
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link " href="dashboard.html">
+						<a class="nav-link " href="/index">
 							<i class="batch-icon batch-icon-browser-alt"></i>
 							Dashboard <span class="sr-only">(current)</span>
 						</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="balance.html">
+						<a class="nav-link" href="/domestic">
 							<i class="batch-icon batch-icon-users"></i>
 							Domestic Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="local-transfer.html">
+						<a class="nav-link" href="/local">
 							<i class="batch-icon batch-icon-key"></i>
 							Local Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="wire-transfer.html">
+						<a class="nav-link" href="/wire">
 							<i class="batch-icon batch-icon-refresh"></i>
 							International Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="history.html">
+						<a class="nav-link" href="/history">
 							<i class="batch-icon batch-icon-safe"></i>
 							Transaction History
 						</a>
@@ -146,13 +148,13 @@ border-radius:20px;
 
 
 					<li class="nav-item">
-						<a class="nav-link" href="statement.html">
+						<a class="nav-link" href="/statement">
 							<i class="batch-icon batch-icon-user-card"></i>
 							Account Statement
 						</a>
 					</li>
-                        <script src="//code.tidio.co/4f9iczkpwmcu931pozzxq7ffodliovjc.js" async></script>		<li class="nav-item">
-						<a class="nav-link" href="profile.html">
+            		<li class="nav-item">
+						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
 						</a>
@@ -160,27 +162,28 @@ border-radius:20px;
 
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/change/password">
+						<a class="nav-link" href="/settings">
 							<i class="batch-icon batch-icon-settings"></i>
 							Account Settings
 						</a>
 					</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/user-contact">
+						<a class="nav-link" href="/contact">
 							<i class="batch-icon batch-icon-support"></i>
 							Contact Us
 						</a>
 					</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/logout"  onclick="event.preventDefault();
-                                        document.getElementById('logout').submit();">
+						<a class="nav-link" href="/logout?_method=DELETE"  onclick="event.preventDefault();
+                document.getElementById('logout').submit();">
 							<i class="batch-icon batch-icon-locked"></i>
 							Logout
 						</a>
-						<form id="logout" action="user/logout" method="POST">
-                                <input type="hidden" name="_token" value="dA76x2EoCmeRD2Hg5Wa1crZiEsYgk3rJJqnKJPk9">                            </form>
+						<form id="logout" action="/logout?_method=DELETE" method="POST">
+              <input type="hidden" name="_token" value="">                            
+            </form>
 					</li>
 
 				</ul>
@@ -350,22 +353,22 @@ border-radius:20px;
                                     <ul class="navbar-nav ml-5 navbar-profile">
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
-                                                <div class="profile-name"></div>
+                                                <div class="profile-name"><%= last_name %> <%= first_name %></div>
                                                 <div class="profile-picture bg-gradient bg-primary has-message float-right">
             
                                                     <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
                                                 </div>
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
-                                                <li><a class="dropdown-item" href="user/profile">Profile</a></li>
+                                                <li><a class="dropdown-item" href="/profile">Profile</a></li>
                                                 <li>
-                                                    <a class="dropdown-item" href="user-contact">
+                                                    <a class="dropdown-item" href="/contact">
                                                         Messages
                                                         <span class="badge badge-danger badge-pill float-right"></span>
                                                     </a>
                                                 </li>
-                                                <li><a class="dropdown-item" href="user/change/password">Settings</a></li>
-                                                <li><a class="dropdown-item" href="user/logout"  onclick="event.preventDefault();
+                                                <li><a class="dropdown-item" href="/settings">Settings</a></li>
+                                                <li><a class="dropdown-item" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                                     document.getElementById('logout').submit();"><div style="color:#F00">Logout</div></a></li>
                                             </ul>
                                         </li>
@@ -384,13 +387,35 @@ border-radius:20px;
                                     
                                     
                                                                         <strong style="padding-left:10px;">LOCAL TRANSFER</strong>
-                                    <form method="post" action="user/transfer/local" id="transfer">
-                                                                <input type="hidden" name="_token" value="dA76x2EoCmeRD2Hg5Wa1crZiEsYgk3rJJqnKJPk9">
-                                    
+                                                                        
+                                    <form method="post" action="/local" id="transfer">
+                                                                <input type="hidden" name="_token" value="">
+                                                                
                                                                         
                                                                     <div class="col 12">
+                                                                      <br>
+                                                                      <% if (messages.error) { %>
+                                                                        <div class="alert alert-danger">
+                                                                           <strong><%= messages.error %></strong>
+                                                                        </div>
+                                                                       <% } %>
+                                                                       
+                                                                       <% if (messages.success) { %>
+                                                                        <div class="alert alert-success">
+                                                                          <strong><%= messages.success %></strong>
+                                                                        </div>
+                                                                      <% } %>
+                                                                     
+                                                                      <br>
                                                                                                                                                   
-                                                                <br>
+                                                                <div class="form-group">
+                                                                  <label>Your Account Number</label>
+                          
+                                                                                    <input type="number" class="form-control "  autofill="false" style="margin-bottom:0px;" name="senderAccountNumber" value="<%= accountNumber %>"  placeholder="Enter Account Number" required>
+                          
+                                                                                  
+                                                                                  </div>  
+                                                                          <br>
                                                                             <div class="form-group">
                                                                             <label>Receiver's Bank</label>
                                     
@@ -401,7 +426,7 @@ border-radius:20px;
                                                                             <div class="form-group">
                                                                             <label>Receiver's Account Type</label>
                                     
-                                                                              <select type="text" class="form-control" style="margin-bottom:0px; margin-top:0px;" name="type"  required>
+                                                                              <select type="text" class="form-control" style="margin-bottom:0px; margin-top:0px;" name="accttype"  required>
                                                                              <option value="0" selected Disabled>Select Account Type</option>
                                                                               <option>Savings Account</option>
                                                                              <option>Current Account</option>
@@ -410,17 +435,11 @@ border-radius:20px;
                                                                             </div>                     													 
                                     		 
                                                                             <br>
-                                                                            <div class="form-group">
-                                                                              <label>Your Account Number</label>
-                                    
-                                                                              <input type="number" class="form-control "  autofill="false" style="margin-bottom:0px;" name="senderAccountnumber"  placeholder="Enter Account Number" required>
-                    
                                                                             
-                                                                            </div> 
-                                                                    <br>
-                                                                            <label>Account Number</label>
+                                                                            <div class="form-group">
+                                                                            <label>Receiver's Account Number</label>
                                     
-                                                                                              <input type="number" class="form-control "  autofill="false" style="margin-bottom:0px;" name="recieverAccountnumber"  placeholder="Enter Account Number" required>
+                                                                                              <input type="number" class="form-control "  autofill="false" style="margin-bottom:0px;" name="receiverAccountNumber"  placeholder="Enter Account Number" required>
                                     
                                                                                             
                                                                                             </div> 
@@ -437,7 +456,7 @@ border-radius:20px;
                                                                             <div class="form-group">
                                                                             <label>Transaction Password</label>
                                     
-                                            <input type="password" class="form-control password" style="margin-bottom:0px;" name="password"   placeholder="Transaction pin number" required>
+                                            <input type="password" class="form-control password" style="margin-bottom:0px;" name="pinnumber"   placeholder="Transaction pin number" required>
                                     
                                             </div> 
                                     
@@ -535,6 +554,8 @@ border-radius:20px;
                                         <script type="text/javascript" src="dashassets/js/scripts.js"></script>
                                             <script type="text/javascript" src="dashassets/plugins/form-validator/jquery.form-validator.min.js"></script>
                                                 <script type="text/javascript" src="dashassets/demo/js/forms-validation.js"></script>
+
+                                                
                                     
                                                 <script type="text/javascript">
                                     

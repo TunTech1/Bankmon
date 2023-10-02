@@ -1,13 +1,15 @@
 const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
 const bcrypt = require("bcrypt")
+const collection = require("./mongodb")
 
 
-function initialize(passport, getUserByEmail, getUserById) {
-    // Function to authenticate users
-    const authenticateUsers = async (email, password, done) => {
+
+         // Function to authenticate users
+function authenticateUsers(getUserByEmail, done) {
+    return async (email, password, done) => {   
         // Get users by email
-        const user = getUserByEmail(email)
+        const user = await getUserByEmail(email)
         if (user == null){
             return done (null, false, {message: "No user found"})
         }
@@ -22,13 +24,21 @@ function initialize(passport, getUserByEmail, getUserById) {
             return done(e)
         }
     }
-
-    passport.use(new LocalStrategy({usernameField: 'email'}, authenticateUsers))
-    passport.serializeUser((user, done) => done(null, user.id))
-    passport.deserializeUser((id, done) => {
-        return done(null, getUserById(id))
-    })
-
 }
 
-module.exports = initialize
+
+function initialize(passport, getUserByEmail, getUserById) {
+    passport.use(new LocalStrategy({usernameField: 'email'}, authenticateUsers(getUserByEmail)))
+    passport.serializeUser((user, done) => done(null, user._id))
+    passport.deserializeUser(async (id, done) => {
+        try {
+            const user = await getUserById(id);
+            done(null, user);
+        } catch (err) {
+            console.error(err);
+            done(err);
+        }
+    });
+}
+
+module.exports = initialize;

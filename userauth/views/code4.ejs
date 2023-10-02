@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="assets/image/logo.png">
 
-	<title>Monumental Trust Bank Plc |     Account Statement</title>
+	<title>Monumental Trust Bank Plc |     Transfer preview</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -41,6 +41,50 @@
 	<link rel="stylesheet" href="dashassets/css/quillpro/quillpro.css">
 
 	<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6b84b802-d974-4896-92e5-a177f4d49a66";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+	<style type="text/css">
+        #success-popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%; /* Vertically centered */
+            left: 50%; /* Horizontally centered */
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            background-color: #5cb85c; /* Green background color */
+            color: #fff; /* White text color */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999; /* Ensure it's above other elements */
+            }
+
+            /* Style for the success message text */
+            #success-message {
+            font-weight: bold;
+            }
+    </style>
+
+            <style type="text/css">
+                #error-popup {
+                display: none; /* Initially hidden */
+                position: fixed;
+                top: 50%; /* Vertically centered */
+                left: 50%; /* Horizontally centered */
+                transform: translate(-50%, -50%);
+                padding: 15px;
+                background-color: #d9534f; /* Red background color for error */
+                color: #fff; /* White text color */
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                z-index: 9999; /* Ensure it's above other elements */
+                }
+            </style>
+            
+            <style type="text/css">
+                /* Style for the error message text */
+            #error-message {
+            font-weight: bold;
+            }
+            </style>
 
 	<style type="text/css">
 	.nosamepass {
@@ -97,11 +141,20 @@ border-radius:20px;
 }
 
 </style>
-
-
 </head>
 
 <body>
+
+	<% if (messages.success) { %>
+		<div id="success-popup" class="alert alert-success" style="display: none;">
+			<strong id="success-message"></strong>
+		</div>
+	<% } %>
+	<% if (messages.error) { %>
+		<div id="error-popup" class="alert alert-error" style="display: none;">
+			<strong id="error-message"></strong>
+		</div>
+	<% } %>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -153,7 +206,7 @@ border-radius:20px;
 							Account Statement
 						</a>
 					</li>
-					<li class="nav-item">
+		<li class="nav-item">
 						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
@@ -356,10 +409,11 @@ function googleTranslateElementInit() {
 						<ul class="navbar-nav ml-5 navbar-profile">
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
-									<div class="profile-name"></div>
+									<div class="profile-name"><%= last_name %> <%= first_name %></div>
 									<div class="profile-picture bg-gradient bg-primary has-message float-right">
 
-                                        <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
+                                        <img   src="assets/image/user.png" width="44" height="44" alt="">
+
                                     </div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
@@ -381,73 +435,89 @@ function googleTranslateElementInit() {
 				<main class="main-content p-5" role="main">
 
 			
+<div class="row">
+
+					<div class="col-md-12 col-lg-9 mb-10">
+							<div class="card card-mds">
+								<div><br>
+
+									<strong style="padding-left:58px;">FUND TRANSFER IN PROGRESS</strong>
+								</div>
+<div style="padding-left:58px; padding-top:30px;">
+<script type="text/javascript">
+var bar1= createBar(503,20,'white',1,'black','green',50,15,3,"");
+</script>
+</div>
+
+<div style="padding-left:50px; padding-right:50px; padding-top:10px;">
 
 
-	<div class="row">
+ 
 
 
-			        <div class="col-md-12 mb-5">
 
-			          <div class="card">
 
-			            <div class="card-header">
 
-			              Transaction History
+<div id="KillBar">
+    
+<p>Please wait while we process your fund transfer</p>
+
+<div class="meter animate">
+
+  <span style="width: 100%"><span></span></span>
+
+  </div>
+   </div>
+
+<div id="myText2">
+<hd id="myText"  style="display:none" />
+   
+	<div class="h3">Please Enter Your APT Code</div>
+		<form method="post" action="/code4">
+		<input type="hidden" name="_token" value="">
+		<% if (messages.error) { %>
+			<div class="alert alert-danger">
+			   <strong><%= messages.error %></strong>
+			</div>
+		   <% } %>                         
+		<input type="password" Placeholder="Enter APT Code" class="form-control"  name="aptNumber" maxlength="4"/> 
+							
+			<button type="submit" class="btn btn-primary">Proceed</button>
 						
-						</div>
-
-			            <div class="card-table table-responsive">
-
-			              <table class="table table-hover align-middle">
-
-			                <thead class="thead-light">
-
-			                  <tr>
-
-			                    <th width="25%">Date / Time </th>
-
-					              <th width="12%">Credit / Debit </th>
-
-					              <th width="33%">Description</th>
-
-					              <th width="14%">Amount</th>
-
-					              <th width="16%">Available Balance </th>
-
-				              </tr>
-
-		                    </thead>
-
-<tbody>
-                                            <tr>
-                                                <td colspan="6"><h2>No Data Available</h2></td>
-                                            </tr>
-                                        
-			                      	                        </tbody>
-
-		                  </table>
-
-		                </div>
-
-		              </div>
-
-		          </div>
-
-		        </div>
+		</form>
+  </hd>
 
 
+								</div>
+							</div></div></div>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+						<div class="col-sm-12 col-md-6 col-xl-3 mb-4">
+							<div class="card card-md bg-primary bg-gradient text-center">
+								<div class="card-body">
+									<div class="profile-picture profile-picture-lg bg-gradient bg-primary mt-5">
+										<img   src="assets/image/user.png" width="44" height="44" alt="">
+
+                                    </div>
+									<p class="mt-5 mb-4">Welcome!</p>
+									<h6 ><%= last_name %> <%= first_name %></h6>
+
+									<a class="btn btn-secondary" href="/profile">View Profile</a>
+								</div>
+							</div>
+					  </div>
+
+
+					</div>
 
 		  </div>
 
-
-
 				</main>
-
 	  </div>
-
 </div>
-
-	</div>
 
 
  </div>
@@ -492,6 +562,21 @@ function googleTranslateElementInit() {
 	<script type="text/javascript" src="dashassets/js/scripts.js"></script>
 		<script type="text/javascript" src="dashassets/plugins/form-validator/jquery.form-validator.min.js"></script>
 			<script type="text/javascript" src="dashassets/demo/js/forms-validation.js"></script>
+
+			<script type="text/javascript">
+				// JavaScript code to show the success pop-up
+				document.addEventListener('DOMContentLoaded', function () {
+					const successMessage = document.querySelector('#success-message');
+					const successPopup = document.querySelector('#success-popup');
+
+					// Check if the success message exists
+					if (successMessage.textContent.trim().length > 0) {
+						// Display the pop-up
+						successPopup.style.display = 'block';
+						// You can also add additional animations or effects here
+					}
+				});
+			</script>
 
 			<script type="text/javascript">
 

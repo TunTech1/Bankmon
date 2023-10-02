@@ -46,6 +46,21 @@
         });
     }
 
+
+    // JavaScript code to show the success pop-up
+    document.addEventListener('DOMContentLoaded', function () {
+        const successMessage = document.querySelector('#success-message');
+        const successPopup = document.querySelector('#success-popup');
+
+        // Check if the success message exists
+        if (successMessage.textContent.trim().length > 0) {
+            // Display the pop-up
+            successPopup.style.display = 'block';
+            // You can also add additional animations or effects here
+        }
+    });
+
+
     //======================
     // Foo nav toggler
     //======================

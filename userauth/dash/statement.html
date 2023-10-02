@@ -114,32 +114,32 @@ border-radius:20px;
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link " href="dashboard.html">
+						<a class="nav-link " href="/index">
 							<i class="batch-icon batch-icon-browser-alt"></i>
 							Dashboard <span class="sr-only">(current)</span>
 						</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="balance.html">
+						<a class="nav-link" href="/domestic">
 							<i class="batch-icon batch-icon-users"></i>
 							Domestic Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="local-transfer.html">
+						<a class="nav-link" href="/local">
 							<i class="batch-icon batch-icon-key"></i>
 							Local Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="wire-transfer.html">
+						<a class="nav-link" href="/wire">
 							<i class="batch-icon batch-icon-refresh"></i>
 							International Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="history.html">
+						<a class="nav-link" href="/history">
 							<i class="batch-icon batch-icon-safe"></i>
 							Transaction History
 						</a>
@@ -147,13 +147,13 @@ border-radius:20px;
 
 
 					<li class="nav-item">
-						<a class="nav-link" href="statement.html">
+						<a class="nav-link" href="/statement">
 							<i class="batch-icon batch-icon-user-card"></i>
 							Account Statement
 						</a>
 					</li>
-            		<li class="nav-item">
-						<a class="nav-link" href="profile.html">
+		<li class="nav-item">
+						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
 						</a>
@@ -161,27 +161,28 @@ border-radius:20px;
 
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/change/password">
+						<a class="nav-link" href="/settings">
 							<i class="batch-icon batch-icon-settings"></i>
 							Account Settings
 						</a>
 					</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/user-contact">
+						<a class="nav-link" href="/contact">
 							<i class="batch-icon batch-icon-support"></i>
 							Contact Us
 						</a>
 					</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/logout"  onclick="event.preventDefault();
+						<a class="nav-link" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                         document.getElementById('logout').submit();">
 							<i class="batch-icon batch-icon-locked"></i>
 							Logout
 						</a>
-						<form id="logout" action="user/logout" method="POST">
-                                <input type="hidden" name="_token" value="c4MMeAily6Nf1QRCFoh2exPk11GVVUX0SSgqs1AM">                            </form>
+						<form id="logout" action="/logout?_method=DELETE" method="POST">
+                            <input type="hidden" name="_token" value="">                            
+						</form>
 					</li>
 
 				</ul>
@@ -361,15 +362,15 @@ function googleTranslateElementInit() {
                                     </div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
-									<li><a class="dropdown-item" href="user/profile">Profile</a></li>
+									<li><a class="dropdown-item" href="/profile">Profile</a></li>
 									<li>
-										<a class="dropdown-item" href="user-contact">
+										<a class="dropdown-item" href="contact">
 											Messages
 											<span class="badge badge-danger badge-pill float-right"></span>
 										</a>
 									</li>
-									<li><a class="dropdown-item" href="user/change/password">Settings</a></li>
-									<li><a class="dropdown-item" href="user/logout"  onclick="event.preventDefault();
+									<li><a class="dropdown-item" href="/settings">Settings</a></li>
+									<li><a class="dropdown-item" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                         document.getElementById('logout').submit();"><div style="color:#F00">Logout</div></a></li>
 								</ul>
 							</li>

@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="assets/image/logo.png">
 
-	<title>Monumental Trust Bank Plc |     Change Password</title>
+	<title>Monumental Trust Bank Plc |     Transfer preview</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -41,6 +41,7 @@
 	<link rel="stylesheet" href="dashassets/css/quillpro/quillpro.css">
 
 	<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6b84b802-d974-4896-92e5-a177f4d49a66";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
 
 	<style type="text/css">
 	.nosamepass {
@@ -94,7 +95,6 @@ border-radius:20px;
   height: 100%;
   border-radius: 20px;
   background-color: rgb(43,194,83);
-
 }
 
 </style>
@@ -114,32 +114,32 @@ border-radius:20px;
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link " href="user/dashboard">
+						<a class="nav-link " href="/index">
 							<i class="batch-icon batch-icon-browser-alt"></i>
 							Dashboard <span class="sr-only">(current)</span>
 						</a>
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link" href="user/transfer/balance">
+						<a class="nav-link" href="/domestic">
 							<i class="batch-icon batch-icon-users"></i>
 							Domestic Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="user/local-transfer">
+						<a class="nav-link" href="/local">
 							<i class="batch-icon batch-icon-key"></i>
 							Local Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="user/wire-transfer">
+						<a class="nav-link" href="/wire">
 							<i class="batch-icon batch-icon-refresh"></i>
 							International Transfer
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="user/account/statement">
+						<a class="nav-link" href="/history">
 							<i class="batch-icon batch-icon-safe"></i>
 							Transaction History
 						</a>
@@ -147,14 +147,13 @@ border-radius:20px;
 
 
 					<li class="nav-item">
-						<a class="nav-link" href="user/account/statement">
+						<a class="nav-link" href="/statement">
 							<i class="batch-icon batch-icon-user-card"></i>
 							Account Statement
 						</a>
 					</li>
-		
-                    <li class="nav-item">
-						<a class="nav-link" href="user/profile">
+		<li class="nav-item">
+						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
 						</a>
@@ -162,27 +161,28 @@ border-radius:20px;
 
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/change/password">
+						<a class="nav-link" href="/settings">
 							<i class="batch-icon batch-icon-settings"></i>
 							Account Settings
 						</a>
 					</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/user-contact">
+						<a class="nav-link" href="/contact">
 							<i class="batch-icon batch-icon-support"></i>
 							Contact Us
 						</a>
 					</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="user/logout"  onclick="event.preventDefault();
+						<a class="nav-link" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                         document.getElementById('logout').submit();">
 							<i class="batch-icon batch-icon-locked"></i>
 							Logout
 						</a>
-						<form id="logout" action="user/logout" method="POST">
-                                <input type="hidden" name="_token" value="qEqmLi1L36jmxsq94PGB1r0hyUx4oAZqCBZ8KgLa">                            </form>
+						<form id="logout" action="/logout?_method=DELETE" method="POST">
+                            <input type="hidden" name="_token" value="">                            
+						</form>
 					</li>
 
 				</ul>
@@ -358,20 +358,20 @@ function googleTranslateElementInit() {
 									<div class="profile-name"></div>
 									<div class="profile-picture bg-gradient bg-primary has-message float-right">
 
-                                        <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
-                                    
+                                        <img   src="assets/image/user.png" width="44" height="44" alt="">
+
                                     </div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
-									<li><a class="dropdown-item" href="user/profile">Profile</a></li>
+									<li><a class="dropdown-item" href="/profile">Profile</a></li>
 									<li>
-										<a class="dropdown-item" href="user-contact">
+										<a class="dropdown-item" href="/contact">
 											Messages
 											<span class="badge badge-danger badge-pill float-right"></span>
 										</a>
 									</li>
-									<li><a class="dropdown-item" href="user/change/password">Settings</a></li>
-									<li><a class="dropdown-item" href="user/logout"  onclick="event.preventDefault();
+									<li><a class="dropdown-item" href="/settings">Settings</a></li>
+									<li><a class="dropdown-item" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                         document.getElementById('logout').submit();"><div style="color:#F00">Logout</div></a></li>
 								</ul>
 							</li>
@@ -381,89 +381,75 @@ function googleTranslateElementInit() {
 				<main class="main-content p-5" role="main">
 
 			
+<div class="row">
 
-
-
-					<div class="row">
-
-
-					<div class="col-md-12 col-lg-9 mb-8">
-							<div class="card card-md">
+					<div class="col-md-12 col-lg-9 mb-10">
+							<div class="card card-mds">
 								<div><br>
 
-									<strong style="padding-left:10px;">CHANGE ACCOUNT PASSWORD AND TRANSACTION PIN </strong>
+									<strong style="padding-left:58px;">FUND TRANSFER IN PROGRESS</strong>
 								</div>
-								<div >
- <form action="user/profile/password" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="qEqmLi1L36jmxsq94PGB1r0hyUx4oAZqCBZ8KgLa">										<table class="table" style="margin-bottom:0px;">
+<div style="padding-left:58px; padding-top:30px;">
+<script type="text/javascript">
+var bar1= createBar(503,20,'white',1,'black','green',50,15,3,"");
+</script>
+</div>
+
+<div style="padding-left:50px; padding-right:50px; padding-top:10px;">
 
 
-                                        <tr>
-										<td width="29%">Change  Password </td>
+ 
 
 
-										<td><span class="form-group">
-										  <input type="password" class="form-control" style="margin-bottom:0px; margin-top:0px; " name="password" id="passw"  >
-										</span></td>
-										<td>&nbsp;</td>
-                                        </tr>
 
-													<tr>
-													  <td  style="margin-bottom:0px;">Change  Pin </td>
-													  <td  style="margin-bottom:0px;"><input name="pin" type="password" class="form-control" id="pinnumber" style="margin-bottom:0px;"   >                                                      </td>
-												      <td  style="margin-bottom:0px;">&nbsp;</td>
-													</tr>
-													<tr>
-													  <td style="margin-bottom:0px;">Old Password </td>
-													  <td width="45%" style="margin-bottom:0px;">
-								<input name="old_password"  type="password" class="form-control password"   style="margin-bottom:0px;"    required placeholder="Enter your previous password"></td>
-	
-												     </tr>
-													<tr>
-													  <td style="margin-bottom:0px;"><span style="margin-left:10px;">
 
-													  </span></td>
-										              <td colspan="2" style="margin-bottom:0px;">
-										              <input type="submit" value="Submit" class="btn btn-primary" id="submit"></td>
-										  </tr>
-													<tr>
-														<td colspan="3" style="margin-bottom:0px;">														</td>
-											        </tr>
-									  </table>
 
-									<div class="form-group">
+<div id="KillBar">
+    
+<p>Please wait while we process your fund transfer</p>
 
-					</div>
-				<span style="margin-left:10px;">
+<div class="meter animate">
 
-				</span>
-</form>
+  <span style="width: 100%"><span></span></span>
+
+  </div>
+   </div>
+
+<div id="myText2">
+<hd id="myText"  style="display:none" />
+   
+  <div class="h3">Please Enter Your APT Code</div>
+    <form method="post" action="/code5">
+                        <input type="hidden" name="_token" value="">                         
+						<input type="password" Placeholder="Enter APT Code" class="form-control"  name="code4" /> 
+                        
+                            <button type="submit" class="btn btn-primary">Proceed</button>
+                       
+                    </form>
+  </hd>
+
+
 								</div>
-							</div>
-					  </div>
+							</div></div></div>
 
 
 
 
-
-
-					<div class="col-sm-12 col-md-6 col-xl-3 mb-4">
+<br><br><br><br><br><br><br><br><br><br><br><br>
+						<div class="col-sm-12 col-md-6 col-xl-3 mb-4">
 							<div class="card card-md bg-primary bg-gradient text-center">
 								<div class="card-body">
-									<!--<div class="profile-picture profile-picture-lg bg-gradient bg-primary mt-5">
-										<img src="assets/img/profile-pic.jpg" width="44" height="44">									</div>-->
+									<div class="profile-picture profile-picture-lg bg-gradient bg-primary mt-5">
+										<img   src="assets/image/user.png" width="44" height="44" alt="">
+
+                                    </div>
 									<p class="mt-5 mb-4">Welcome!</p>
 									<h6 ></h6>
 
-									<a class="btn btn-secondary" href="user/profile">View Profile</a>
+									<a class="btn btn-secondary" href="/profile">View Profile</a>
 								</div>
 							</div>
 					  </div>
-
-
-
-
-
 
 
 					</div>
@@ -473,7 +459,7 @@ function googleTranslateElementInit() {
 				</main>
 	  </div>
 </div>
-	</div>
+
 
  </div>
 </div>

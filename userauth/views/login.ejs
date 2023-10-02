@@ -39,6 +39,17 @@
   </head>
   <body class="login-page">
 
+    <% if (messages.success) { %>
+      <div id="success-popup" class="alert alert-success" style="display: none;">
+        <strong id="success-message"></strong>
+      </div>
+    <% } %>
+    <% if (messages.error) { %>
+      <div id="error-popup" class="alert alert-error" style="display: none;">
+        <strong id="error-message"></strong>
+      </div>
+    <% } %>
+
     <div class="signup-login">
       <div class="sl-slider-caro owl-carousel">
         <div class="single-sl-slide">

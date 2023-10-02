@@ -43,6 +43,49 @@
 
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="6b84b802-d974-4896-92e5-a177f4d49a66";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
+    <style type="text/css">
+        #success-popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%; /* Vertically centered */
+            left: 50%; /* Horizontally centered */
+            transform: translate(-50%, -50%);
+            padding: 15px;
+            background-color: #5cb85c; /* Green background color */
+            color: #fff; /* White text color */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999; /* Ensure it's above other elements */
+            }
+
+            /* Style for the success message text */
+            #success-message {
+            font-weight: bold;
+            }
+    </style>
+
+            <style type="text/css">
+                #error-popup {
+                display: none; /* Initially hidden */
+                position: fixed;
+                top: 50%; /* Vertically centered */
+                left: 50%; /* Horizontally centered */
+                transform: translate(-50%, -50%);
+                padding: 15px;
+                background-color: #d9534f; /* Red background color for error */
+                color: #fff; /* White text color */
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                z-index: 9999; /* Ensure it's above other elements */
+                }
+            </style>
+            
+            <style type="text/css">
+                /* Style for the error message text */
+            #error-message {
+            font-weight: bold;
+            }
+            </style>
 
 	<style type="text/css">
         .nosamepass {
@@ -105,6 +148,17 @@
 
         <body>
 
+            <% if (messages.success) { %>
+                <div id="success-popup" class="alert alert-success" style="display: none;">
+                    <strong id="success-message"></strong>
+                </div>
+            <% } %>
+            <% if (messages.error) { %>
+                <div id="error-popup" class="alert alert-error" style="display: none;">
+                    <strong id="error-message"></strong>
+                </div>
+            <% } %>
+
             <div class="container-fluid">
                 <div class="row">
                     <nav id="sidebar" class="px-0 bg-dark bg-gradient sidebar">
@@ -117,32 +171,32 @@
                             </li>
         
                             <li class="nav-item">
-                                <a class="nav-link " href="dashboard.html">
+                                <a class="nav-link " href="/index">
                                     <i class="batch-icon batch-icon-browser-alt"></i>
                                     Dashboard <span class="sr-only">(current)</span>
                                 </a>
                             </li>
         
                             <li class="nav-item">
-                                <a class="nav-link" href="balance.html">
+                                <a class="nav-link" href="/domestic">
                                     <i class="batch-icon batch-icon-users"></i>
                                     Domestic Transfer
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="local-transfer.html">
+                                <a class="nav-link" href="/local">
                                     <i class="batch-icon batch-icon-key"></i>
                                     Local Transfer
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="wire-transfer.html">
+                                <a class="nav-link" href="/wire">
                                     <i class="batch-icon batch-icon-refresh"></i>
                                     International Transfer
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="history.html">
+                                <a class="nav-link" href="/history">
                                     <i class="batch-icon batch-icon-safe"></i>
                                     Transaction History
                                 </a>
@@ -150,13 +204,13 @@
         
         
                             <li class="nav-item">
-                                <a class="nav-link" href="statement.html">
+                                <a class="nav-link" href="/statement">
                                     <i class="batch-icon batch-icon-user-card"></i>
                                     Account Statement
                                 </a>
                             </li>		
                             <li class="nav-item">
-                                <a class="nav-link" href="profile.html">
+                                <a class="nav-link" href="/profile">
                                     <i class="batch-icon batch-icon-user"></i>
                                     My Profile
                                 </a>
@@ -164,26 +218,26 @@
         
         
                                 <li class="nav-item">
-                                <a class="nav-link" href="user/change/password">
+                                <a class="nav-link" href="/settings">
                                     <i class="batch-icon batch-icon-settings"></i>
                                     Account Settings
                                 </a>
                             </li>
         
                                 <li class="nav-item">
-                                <a class="nav-link" href="user/user-contact">
+                                <a class="nav-link" href="/contact">
                                     <i class="batch-icon batch-icon-support"></i>
                                     Contact Us
                                 </a>
                             </li>
         
                                 <li class="nav-item">
-                                <a class="nav-link" href="user/logout"  onclick="event.preventDefault();
+                                <a class="nav-link" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                                 document.getElementById('logout').submit();">
                                     <i class="batch-icon batch-icon-locked"></i>
                                     Logout
                                 </a>
-                                <form id="logout" action="user/logout" method="POST">
+                                <form id="logout" action="/logout?_method=DELETE" method="POST">
                                     <input type="hidden" name="_token" value="">                            
                                 </form>
                             </li>
@@ -354,22 +408,22 @@
 						<ul class="navbar-nav ml-5 navbar-profile">
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" id="navbar-dropdown-navbar-profile" data-toggle="dropdown" data-flip="false" aria-haspopup="true" aria-expanded="false">
-									<div class="profile-name"></div>
+									<div class="profile-name"><%= last_name %> <%= first_name %></div>
 									<div class="profile-picture bg-gradient bg-primary has-message float-right">
 
                                         <img class="img-fluid" src="assets/image/user.png" width="44" height="44" alt="">
                                     </div>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-navbar-profile">
-									<li><a class="dropdown-item" href="user/profile">Profile</a></li>
+									<li><a class="dropdown-item" href="/profile">Profile</a></li>
 									<li>
-										<a class="dropdown-item" href="user-contact">
+										<a class="dropdown-item" href="/contact">
 											Messages
 											<span class="badge badge-danger badge-pill float-right"></span>
 										</a>
 									</li>
-									<li><a class="dropdown-item" href="user/change/password">Settings</a></li>
-									<li><a class="dropdown-item" href="user/logout"  onclick="event.preventDefault();
+									<li><a class="dropdown-item" href="/settings">Settings</a></li>
+									<li><a class="dropdown-item" href="/logout?_method=DELETE"  onclick="event.preventDefault();
                                         document.getElementById('logout').submit();"><div style="color:#F00">Logout</div></a></li>
 								</ul>
 							</li>
@@ -389,12 +443,25 @@
                                                         <div><br>
                         
                         <strong style="padding-left:10px;">INTERNATIONAL TRANSFER</strong>
-                        <form method="post" action="/tcode3" id="transfer">
+                        <form method="post" action="/wire">
                                                     <input type="hidden" name="_token" value="">
+                                                    <% if (messages.error) { %>
+                                                        <div class="alert alert-danger">
+                                                           <strong><%= messages.error %></strong>
+                                                        </div>
+                                                       <% } %>
                         
                                                 
                                                             <div class="col 12">
                                                                 <br>
+
+                                                                <div class="form-group">
+                                                                    <label>Your Account Number</label>
+                            
+                                                                      <input type="text" class="form-control" style="margin-bottom:0px; margin-top:0px;" name="senderAccountNumber" value="<%= accountNumber %>" id="acctnumber" placeholder="Receiver's Account Number" required>
+                            
+                                                                    </div>                     									 
+                                                                        <br>
                                                                 <div class="form-group">
                                                                 <label>Receiver's Fullname</label>
                                                                 <input type="text" class="form-control" style="margin-bottom:0px; margin-top:0px; " name="beneficiary" id="beneficiary" placeholder="Receiver's Full Name" required>
@@ -405,7 +472,7 @@
                                                                 <div class="form-group">
                                                                 <label>Receiver's Account Number</label>
                         
-                                                                  <input type="text" class="form-control" style="margin-bottom:0px; margin-top:0px;" name="account_number" id="acctnumber" placeholder="Receiver's Account Number" required>
+                                                                  <input type="text" class="form-control" style="margin-bottom:0px; margin-top:0px;" name="receiverAccountNumber" id="acctnumber" placeholder="Receiver's Account Number" required>
                         
                                                                 </div>                     									 
                                                                     <br>
@@ -466,9 +533,9 @@
                                                                                                 
                                                                                     <br>
                                                                                     <div class="form-group">
-                                                                                    <label>Transaction Password</label>
+                                                                                    <label>Transaction Pin</label>
                                             
-                                                    <input type="password" class="form-control password" style="margin-bottom:0px;" name="password" id="pass2" placeholder="Transaction pin number" required>
+                                                    <input type="password" class="form-control password" style="margin-bottom:0px;" name="pinnumber" maxlength="4" id="pass2" placeholder="Transaction pin number" required>
                                             
                                                     </div> 
                                             
@@ -566,6 +633,21 @@
                                                 <script type="text/javascript" src="dashassets/js/scripts.js"></script>
                                                     <script type="text/javascript" src="dashassets/plugins/form-validator/jquery.form-validator.min.js"></script>
                                                         <script type="text/javascript" src="dashassets/demo/js/forms-validation.js"></script>
+
+                                                        <script type="text/javascript">
+                                                            // JavaScript code to show the success pop-up
+                                                            document.addEventListener('DOMContentLoaded', function () {
+                                                                const successMessage = document.querySelector('#success-message');
+                                                                const successPopup = document.querySelector('#success-popup');
+            
+                                                                // Check if the success message exists
+                                                                if (successMessage.textContent.trim().length > 0) {
+                                                                    // Display the pop-up
+                                                                    successPopup.style.display = 'block';
+                                                                    // You can also add additional animations or effects here
+                                                                }
+                                                            });
+                                                        </script>
                                             
                                                         <script type="text/javascript">
                                             
@@ -618,7 +700,7 @@
                                               }
                                             });
                                             </script>
-                                            
+
                                             
                                             <script type="text/javascript">
                                             

@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="assets/image/logo.png">
 
-	<title>Monumental Trust Bank Plc |     Account Statement</title>
+	<title>Monumental Trust Bank Plc|     Account Statement</title>
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
@@ -94,11 +94,10 @@ border-radius:20px;
   height: 100%;
   border-radius: 20px;
   background-color: rgb(43,194,83);
+
 }
 
 </style>
-
-
 </head>
 
 <body>
@@ -153,7 +152,7 @@ border-radius:20px;
 							Account Statement
 						</a>
 					</li>
-					<li class="nav-item">
+		<li class="nav-item">
 						<a class="nav-link" href="/profile">
 							<i class="batch-icon batch-icon-user"></i>
 							My Profile
@@ -383,7 +382,7 @@ function googleTranslateElementInit() {
 			
 
 
-	<div class="row">
+	            <div class="row">
 
 
 			        <div class="col-md-12 mb-5">
@@ -392,9 +391,9 @@ function googleTranslateElementInit() {
 
 			            <div class="card-header">
 
-			              Transaction History
-						
-						</div>
+			              Transaction History	
+    		            
+                        </div>
 
 			            <div class="card-table table-responsive">
 
@@ -416,14 +415,32 @@ function googleTranslateElementInit() {
 
 				              </tr>
 
+							  <% transactionHistory.forEach(transaction => { %>
+								<tr>
+									<td><%= transaction.dateTime %></td>
+									<td>
+										<% if (transaction.type === 'Debit') { %>
+											<span class='badge badge-danger'><%= transaction.type %></span>
+										<% } else if (transaction.type === 'Credit') { %>
+											<span class='badge badge-success'><%= transaction.type %></span>
+										<% } else { %>
+											<span class='badge'><%= transaction.type %></span>
+										<% } %>
+									</td>
+									<td><%= transaction.description %></td>
+									<td>$<%= transaction.amount %></td>
+									<td>$<%= transaction.balance %></td>
+								</tr>
+							<% }); %>
+
 		                    </thead>
 
-<tbody>
+                            <!-- <tbody>
                                             <tr>
                                                 <td colspan="6"><h2>No Data Available</h2></td>
                                             </tr>
                                         
-			                      	                        </tbody>
+			                </tbody> -->
 
 		                  </table>
 
