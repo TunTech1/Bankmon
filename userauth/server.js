@@ -18,6 +18,7 @@ const methodOverride = require("method-override");
 const { collection, Transaction } = require("./mongodb");
 const mongoose = require("mongoose");
 const mongoURI = process.env.MONGODB_URI;
+const port = process.env.PORT || 3000;
 
 initializePassport(
     passport, 
